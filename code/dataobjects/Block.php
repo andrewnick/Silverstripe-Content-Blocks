@@ -128,9 +128,9 @@ class Block extends DataObject {
 		
 		// Template tab
 		$optionset = array();
-		$theme	= SSViewer::current_theme();
-		$src	= BASE_PATH . "/themes/".$theme."/templates/BlockTemplates/";
-		$imgsrc	= "/themes/".$theme."/templates/BlockTemplates/";
+		$theme	= '/app'
+		$src	= BASE_PATH .$theme."/templates/BlockTemplates/";
+		$imgsrc	= $theme."/templates/BlockTemplates/";
 			
 		// TODO: If ClassName == Block, return the templates of the folder.
 		// If ClassName is something else (extension of block) then see if there is a folder with that name and only return templates from this folder
