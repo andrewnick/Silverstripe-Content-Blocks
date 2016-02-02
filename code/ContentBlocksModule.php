@@ -66,8 +66,8 @@ class ContentBlocksModule extends DataExtension {
 		
 		// If css file does not exist on current theme, copy from module
 		$copyfrom = BASE_PATH . "/".CONTENTBLOCKS_MODULE_DIR."/css/block.css";
-		$theme = SSViewer::current_theme();
-		$copyto    = BASE_PATH . "/themes/".$theme."/css/block.css";
+		$theme = '/app';
+		$copyto    = BASE_PATH .$theme."/dist/css/block.css";
 		
 		if(!file_exists($copyto)) {
 			if(file_exists($copyfrom)) {

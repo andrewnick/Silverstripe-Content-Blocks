@@ -128,7 +128,7 @@ class Block extends DataObject {
 		
 		// Template tab
 		$optionset = array();
-		$theme	= '/app'
+		$theme	= 'app';
 		$src	= BASE_PATH .$theme."/templates/BlockTemplates/";
 		$imgsrc	= $theme."/templates/BlockTemplates/";
 			
@@ -192,24 +192,24 @@ class Block extends DataObject {
 		$this->Images()->removeAll();
 	}
 
-	function requireDefaultRecords() {
-		parent::requireDefaultRecords();
-		// Run on dev build	- move to module file or why is it here?
+	// function requireDefaultRecords() {
+	// 	parent::requireDefaultRecords();
+	// 	// Run on dev build	- move to module file or why is it here?
 		
-		// If templates does not exist on current theme, copy from module
-		$theme = SSViewer::current_theme();
-		$copyto    = "../themes/".$theme."/templates/".CONTENTBLOCKS_TEMPLATE_DIR."/";
+	// 	// If templates does not exist on current theme, copy from module
+	// 	$theme = './app';
+	// 	$copyto    = $theme."/templates/".CONTENTBLOCKS_TEMPLATE_DIR."/";
 		
-		if(!file_exists($copyto)) {
-			$copyfrom = BASE_PATH . "/".CONTENTBLOCKS_MODULE_DIR."/templates/".CONTENTBLOCKS_TEMPLATE_DIR."/";
-			if(file_exists($copyfrom)) {
-				$this->recurse_copy($copyfrom, $copyto);
-				echo '<li style="color: green">BlockTemplates copied to: '.$copyto.'</li>';
-			} else {
-				echo "The default template archive was not found: " . $copyfrom;
-			}
-		}
-	}	
+	// 	if(!file_exists($copyto)) {
+	// 		$copyfrom = BASE_PATH . "/".CONTENTBLOCKS_MODULE_DIR."/templates/".CONTENTBLOCKS_TEMPLATE_DIR."/";
+	// 		if(file_exists($copyfrom)) {
+	// 			$this->recurse_copy($copyfrom, $copyto);
+	// 			echo '<li style="color: green">BlockTemplates copied to: '.$copyto.'</li>';
+	// 		} else {
+	// 			echo "The default template archive was not found: " . $copyfrom;
+	// 		}
+	// 	}
+	// }	
 
 	// Should only unlink if a block is on more than one page
 	public function canDelete($member = null) {
@@ -246,7 +246,9 @@ class Block extends DataObject {
 					$this->recurse_copy($src . '/' . $file,$dst . '/' . $file);
 				}
 				else {
-					copy($src . '/' . $file,$dst . '/' . $file);
+					var_dump($src . $file);
+					var_dump($dst . $file);
+					copy($src . $file,$dst . $file);
 				}
 			}
 		}

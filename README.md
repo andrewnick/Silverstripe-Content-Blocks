@@ -22,7 +22,7 @@ Tested on Silverstripe 3.1.2
 ### Installation instructions ###
 
 - Put this module under the root folder of site, named content-blocks.
-- Add the following code to your themes/your_design/templates/Layout/Page.ss where you want the content blocks to be rendered:
+- Add the following code to your app/templates/Layout/Page.ss where you want the content blocks to be rendered:
 ```
 <div class="blocks"><% loop ActiveBlocks %>$Me<% end_loop %></div>
 ```
@@ -40,17 +40,26 @@ $OneBlock(5)
 	https://github.com/unclecheese/silverstripe-gridfield-betterbuttons
 	
 Or use Composer:
+Add these to your composer.json file
 ```
-"nobrainerweb/silverstripe-content-blocks": "dev-master"
+	"repositories": [
+        {
+            "type": "git",
+            "url":  "git@github.com:andrewnick/Silverstripe-Content-Blocks.git"
+        }
+    ],
+   	"require": {
+		"andrewnick/silverstripe-content-blocks": "dev-master",
+	},
 ```
 
 - run sitename.com/dev/build?flush=all
 
-- The module will copy content-blocks/templates/BlockTemplates to themes/your_design/templates/BlockTemplates, should this fail, please copy the files manually.
-- The module will copy content-blocks/css/sections.css to themes/your_design/block.css, should this fail, please copy the file manually.
+- Please copy the files content-blocks/templates/BlockTemplates to app/templates/BlockTemplates.
+- The module will copy content-blocks/css/sections.css to app/dist/css/block.css, should this fail, please copy the file manually.
 
 ### Usage and customization: ###
-- add your own templates to themes/your_design/templates/BLcokTemplates, they need to have the extension .ss and delete any unwanted templates (there is full example set of fixed width and fluid width templates included in the module)
+- add your own templates to app/templates/BLcokTemplates, they need to have the extension .ss and delete any unwanted templates (there is full example set of fixed width and fluid width templates included in the module)
 - allways run dev/build?flush=1 after adding templates
 - remember to ?flush=1 after modification of templates
 
