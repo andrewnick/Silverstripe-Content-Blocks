@@ -128,7 +128,7 @@ class Block extends DataObject {
 		
 		// Template tab
 		$optionset = array();
-		$theme	= 'app';
+		$theme	= '/app';
 		$src	= BASE_PATH .$theme."/templates/BlockTemplates/";
 		$imgsrc	= $theme."/templates/BlockTemplates/";
 			
